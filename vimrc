@@ -1,0 +1,114 @@
+color jellybeans
+
+call pathogen#infect()
+
+syntax enable
+filetype plugin indent on
+
+let mapleader = ","
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+let g:slime_target = "tmux"
+
+map <Leader>\ <Plug>RubyTestRun     " change from <Leader>t to <Leader>\
+map <Leader>] <Plug>RubyFileRun     " change from <Leader>T to <Leader>]
+map <Leader>/ <Plug>RubyTestRunLast " change from <Leader>l to <Leader>/
+
+set wrap
+set linebreak
+set textwidth=72
+set nolist
+set hidden
+
+set nocompatible
+set number
+set ruler
+set encoding=utf-8
+
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set backspace=indent,eol,start
+
+" List chars
+set list                          " Show invisible characters
+set listchars=""                  " Reset the listchars
+set listchars=tab:\ \             " tabs as gaps
+set listchars+=trail:.            " show trailing spaces as dots
+set listchars+=extends:>          " show > when line extends off screen (right)
+set listchars+=precedes:<         " show < when line extends off screen (left)
+
+set hlsearch
+set incsearch   " incremental searching
+set ignorecase  " searches are case insensitive...
+set smartcase   " ... unless they contain at least one capital letter
+
+set backupdir=~/.vim/_backup//
+set directory=~/.vim/_temp//
+set undofile
+
+if has("statusline") && !&cp
+  set laststatus=2  " always show the status bar
+
+  set statusline=%f\ %m\ %r
+  set statusline+=Line:%l/%L[%p%%]
+  set statusline+=Col:%v
+  set statusline+=Buf:#%n
+endif
+
+" Disable arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
+
+" Stuff what I stole from janus
+
+" sudo write
+cmap w!! %!sudo tee > /dev/null %
+
+" Toggle paste mode
+nmap <silent> <F2> :set invpaste<CR>:set paste?<CR>
+imap <silent> <F2> <ESC>:set invpaste<CR>:set paste?<CR>
+
+nmap <silent> <leader>N :NERDTree<CR>
+
+" cd to the directory containing the file in the buffer
+nmap <silent> <leader>cd :lcd %:h<CR>
+
+" Create the directory containing the file in the buffer
+nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
+
+" Swap two words
+nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+" Toggle hlsearch with <leader>hs
+nmap <leader>hs :set hlsearch! hlsearch?<CR>
+
+" Adjust viewports to the same size
+map <Leader>= <C-w>=
+
+map <leader>h <C-w>h
+map <leader>j <C-w>j
+map <leader>k <C-w>k
+map <leader>l <C-w>l
+
+map <leader>N :NERDTree<CR>
+
+" Underline the current line with =
+nnoremap <leader>1 yypVr=
+
+" Strip trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Reselect pasted text
+nnoremap <leader>v V`]
+
+" Split handling
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
