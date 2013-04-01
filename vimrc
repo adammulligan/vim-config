@@ -15,6 +15,7 @@ Bundle "jpalardy/vim-slime"
 Bundle "tpope/vim-rails"
 Bundle "scrooloose/nerdcommenter"
 Bundle "kien/ctrlp"
+Bundle "wikitopian/hardmode"
 
 let mapleader = ","
 
@@ -23,6 +24,8 @@ let g:slime_target = "tmux"
 map <Leader>\ <Plug>RubyTestRun     " change from <Leader>t to <Leader>\
 map <Leader>] <Plug>RubyFileRun     " change from <Leader>T to <Leader>]
 map <Leader>/ <Plug>RubyTestRunLast " change from <Leader>l to <Leader>/
+
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 set wrap
 set linebreak
