@@ -1,13 +1,21 @@
 color jellybeans
 
-call pathogen#infect()
-
 syntax enable
 filetype plugin indent on
 
-let mapleader = ","
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+Bundle "scrooloose/nerdtree"
+Bundle "scrooloose/syntastic"
+Bundle "tpope/vim-endwise"
+Bundle "vim-ruby/vim-ruby"
+Bundle "janx/vim-rubytest"
+Bundle "jpalardy/vim-slime"
+Bundle "tpope/vim-rails"
+Bundle "scrooloose/nerdcommenter"
+
+let mapleader = ","
 
 let g:slime_target = "tmux"
 
@@ -58,12 +66,6 @@ if has("statusline") && !&cp
   set statusline+=Buf:#%n
 endif
 
-" Disable arrow keys
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-
 " Stuff what I stole from janus
 
 " sudo write
@@ -87,14 +89,6 @@ nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
-" Adjust viewports to the same size
-map <Leader>= <C-w>=
-
-map <leader>h <C-w>h
-map <leader>j <C-w>j
-map <leader>k <C-w>k
-map <leader>l <C-w>l
-
 map <leader>N :NERDTree<CR>
 
 " Underline the current line with =
@@ -105,10 +99,3 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Reselect pasted text
 nnoremap <leader>v V`]
-
-" Split handling
-nnoremap <leader>w <C-w>v<C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
