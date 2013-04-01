@@ -26,6 +26,9 @@ task :install do
   handle_existing_file(vimrc_file)
   `ln -ns "#{Dir.pwd}/vimrc" "#{vimrc_file}"`
 
+  Dir.mkdir("#{Dir.pwd}/_temp")
+  Dir.mkdir("#{Dir.pwd}/_backup")
+
   # Bundle install for vim
   `vim +BundleInstall +qall`
 end
