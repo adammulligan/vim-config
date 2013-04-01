@@ -20,9 +20,14 @@ task :install do
   handle_existing_file(vim_directory)
   `mv "#{Dir.pwd}" "#{vim_directory}"`
 
+  `git clone https://github.com/gmarik/vundle #{Dir.pwd}/bundle/vundle`
+
   vimrc_file = "#{ENV['HOME']}/.vimrc"
   handle_existing_file(vimrc_file)
   `ln -ns "#{Dir.pwd}/vimrc" "#{vimrc_file}"`
+
+  # Bundle install for vim
+  `vim +BundleInstall +qall`
 end
 
 task :uninstall do
