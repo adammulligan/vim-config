@@ -14,6 +14,7 @@ Bundle "janx/vim-rubytest"
 Bundle "jpalardy/vim-slime"
 Bundle "tpope/vim-rails"
 Bundle "scrooloose/nerdcommenter"
+Bundle "kien/ctrlp"
 
 let mapleader = ","
 
