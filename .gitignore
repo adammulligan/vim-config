@@ -1,5 +1,7 @@
-_backup
-_temp
+_backup/*
+_temp/*
+!_backup/.gitkeep
+!_temp/.gitkeep
 .netrwhist
 .VimballRecord
 
