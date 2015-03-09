@@ -4,5 +4,6 @@ _temp/*
 !_temp/.gitkeep
 .netrwhist
 .VimballRecord
+bundle/
 
 .DS_Store
